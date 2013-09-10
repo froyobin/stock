@@ -1,4 +1,5 @@
 #encoding=utf-8
+from hello.models import stockSnName
 import urllib2
 import sys
 from django.http import HttpResponseRedirect
@@ -11,6 +12,8 @@ def addcode(request):
 	b=arr[0].index('"')
 	name=arr[0][b+1:len(arr[0])]
 	name = name.decode('gb18030').encode('utf-8')
+	p1=stockSnName(values='300003',name='justatest');
+	p1.save()
 	return HttpResponse(name)
     	#return HttpResponseRedirect("/list/")
 	

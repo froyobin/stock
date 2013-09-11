@@ -1,11 +1,59 @@
-<h2>通讯录</h2>
-<table border="1">
-  <tr><th>姓名</th><th>地址</th></tr>
-  {% for user in address %}
-  <tr>
-  <td>{{ user.name }}</td>
-  <td>{{ user.address }}</td>
+<script language="JavaScript">
+function myrefresh()
+{
+       window.location.reload();
+}
+setTimeout('myrefresh()',60000);
+</script>
+
+<div align="center">
+<h2>股票查询</h2>
+最新时间：{{ time }}
+</div>
+<form method="post" action="/addcode/">
+ 添加股票代码：<input type="text" name="codeadd" value="">
+<select name="choice">
+<option value="1">上海</option>
+<option value="2">深圳</option>
+</select>
+  <input type="submit" value="添加"><br />
+</form>
+
+<form method="post" action="/delcode/">
+ 删除股票代码：<input type="text" name="codedel" value="">
+<input type="submit" value="删除"> <br />
+</form>
+<table border="1" align="center" >
+  <tr><th>代码</th><th>名称</th>
+<th>今日开盘</th>
+<th>昨日收盘</th>
+<th>当前价格</th>
+<th>今日最高</th>
+<th>今日最低</th>
+<th>买一报价</th>
+<th>卖一报价</th>
+<th>成交股票数</th>
+<th>成交金额</th>
+
+</tr>
+  {% for mystock in stock %}
+  <tr align="center" valign="center">
+  <td>{{ mystock.id }}</td>
+  <td>{{ mystock.name }}</td>
+  <td>{{ mystock.v3 }}</td>
+  <td>{{ mystock.v4 }}</td>
+  <td>{{ mystock.v5 }}</td>
+  <td>{{ mystock.v6 }}</td>
+  <td>{{ mystock.v7 }}</td>
+  <td>{{ mystock.v8 }}</td>
+  <td>{{ mystock.v9 }}</td>
+  <td>{{ mystock.v10 }}</td>
+  <td>{{ mystock.v11 }}</td>
   </tr>
 {% endfor %}
 </table>
-
+<br /><br /><br />
+<div align="center">
+<img src="http://image.sinajs.cn/newchart/min/n/sh000001.gif"> &nbsp&nbsp
+<img src="http://image.sinajs.cn/newchart/min/n/sz399001.gif">
+</div>
